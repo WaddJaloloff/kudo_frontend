@@ -38,12 +38,10 @@ const ProductDetails = ({ product }: { product: Product }) => (
     </div>
 
     <a
-      href="https://t.me/kudouz_bot"
-      target="_blank"
-      rel="noopener noreferrer"
+      href="tel:+998997364444"
       className="block w-full text-center rounded-lg bg-primary px-8 py-4 text-base font-bold text-primary-foreground shadow-lg shadow-primary/30 transition-all duration-300 hover:shadow-xl hover:shadow-primary/40"
     >
-      Buyurtma berish →
+      📞 Buyurtma berish →
     </a>
   </div>
 );
