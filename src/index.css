@@ -91,6 +91,12 @@
   }
 }
 
+.swiper-button-next,
+.swiper-button-prev {
+  color: red; /* yoki kerakli qizil rang kodi (masalan, #ff0000) */
+}
+
+
 @layer utilities {
   .text-gradient-brand {
     @apply bg-clip-text text-transparent;

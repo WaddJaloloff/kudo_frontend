@@ -17,7 +17,7 @@ export interface Product {
 
 export const products: Product[] = [
   {
-    id: "motor-oil",
+    id: "1",
     name: "Motor moyi",
     category: "Moylar",
     description: "Yuqori sifatli sintetik va yarim sintetik motor moylari",
@@ -32,7 +32,7 @@ export const products: Product[] = [
     ],
   },
   {
-    id: "brake-fluid",
+    id: "2",
     name: "Tormoz suyuqligi",
     category: "Suyuqliklar",
     description: "DOT 3, DOT 4 standartidagi tormoz suyuqliklari",
@@ -47,7 +47,7 @@ export const products: Product[] = [
     ],
   },
   {
-    id: "antifreeze",
+    id: "3",
     name: "Antifriz",
     category: "Sovutish",
     description: "Sovutish tizimi uchun yuqori samarali antifrizlar",
@@ -62,7 +62,7 @@ export const products: Product[] = [
     ],
   },
   {
-    id: "filters",
+    id: "4",
     name: "Filtrlash tizimlari",
     category: "Filtrlar",
     description: "Havo, moy va yoqilg'i filtrlari — barcha markalar uchun",
@@ -77,7 +77,7 @@ export const products: Product[] = [
     ],
   },
   {
-    id: "battery",
+    id: "5",
     name: "Akkumulyatorlar",
     category: "Elektr",
     description: "Uzoq muddatli va ishonchli akkumulyator batareyalar",
@@ -92,7 +92,7 @@ export const products: Product[] = [
     ],
   },
   {
-    id: "auto-chemistry",
+    id: "6",
     name: "Avtokimyo",
     category: "Kimyo",
     description: "Tozalash, himoya va parvarishlash vositalari",

@@ -11,18 +11,18 @@ const contacts = [
   {
     icon: MapPin,
     title: "Manzil",
-    value: "Sergeli 3/2/15, Sergeli Avto Bozor, Toshkent",
+    value: "Sergeli Avto Bozor, 3/2/15, Toshkent",
     href: "https://www.google.com/maps/place/41%C2%B013'53.6%22N+69%C2%B012'51.9%22E/@41.231544,69.214419,16z/data=!4m4!3m3!8m2!3d41.2315556!4d69.2144167?entry=ttu&g_ep=EgoyMDI2MDIxMS4wIKXMDSoASAFQAw%3D%3D",
   },
   {
     icon: Clock,
     title: "Ish vaqti",
-    value: "Dushanba — Shanba, 09:00 — 18:00",
+    value: "8:00 - 17:00",
     href: undefined,
   },
   {
     icon: Send,
-    title: "Telegram",
+    title: "Telegram Bot",
     value: "@kudouz_bot",
     href: "https://t.me/kudouz_bot",
   },

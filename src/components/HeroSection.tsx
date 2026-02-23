@@ -19,7 +19,7 @@ const HeroSection = () => {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary-foreground mb-6 animate-fade-in">
             <span className="h-2 w-2 rounded-full bg-primary animate-pulse" />
-            15 yillik tajriba
+            +15 yillik tajriba
           </div>
 
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-black tracking-tight text-primary-foreground leading-[1.1] mb-6 animate-fade-up">
