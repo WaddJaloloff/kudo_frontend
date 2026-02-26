@@ -57,7 +57,7 @@ const Products = () => {
 
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/api/products/")
+    fetch("/api/products/")
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
