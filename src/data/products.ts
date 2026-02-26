@@ -1,6 +1,6 @@
-import motorOilImg from "@/assets/products/motor-oil.jpg";
-import brakeFluidImg from "@/assets/products/brake-fluid.jpg";
-import antifreezeImg from "@/assets/products/antifreeze.jpg";
+import motorOilImg from "@/assets/products/image.png";
+import brakeFluidImg from "@/assets/products/yonilgi-nasosi.png";
+import antifreezeImg from "@/assets/products/rul-mexanizimi.png";
 import filtersImg from "@/assets/products/filters.jpg";
 import batteryImg from "@/assets/products/battery.jpg";
 import autoChemistryImg from "@/assets/products/auto-chemistry.jpg";
@@ -18,8 +18,8 @@ export interface Product {
 export const products: Product[] = [
   {
     id: "1",
-    name: "Motor moyi",
-    category: "Moylar",
+    name: "Ichki Granata",
+    category: "Ehtiyot qismlar",
     description: "Yuqori sifatli sintetik va yarim sintetik motor moylari",
     image: motorOilImg,
     details:
@@ -33,8 +33,8 @@ export const products: Product[] = [
   },
   {
     id: "2",
-    name: "Tormoz suyuqligi",
-    category: "Suyuqliklar",
+    name: "Yonilg'i nasosi",
+    category: "Ehtiyot qismlar",
     description: "DOT 3, DOT 4 standartidagi tormoz suyuqliklari",
     image: brakeFluidImg,
     details:
@@ -48,8 +48,8 @@ export const products: Product[] = [
   },
   {
     id: "3",
-    name: "Antifriz",
-    category: "Sovutish",
+    name: "Rul Mexanizimi",
+    category: "Ehtiyot qismlar",
     description: "Sovutish tizimi uchun yuqori samarali antifrizlar",
     image: antifreezeImg,
     details:
@@ -61,49 +61,49 @@ export const products: Product[] = [
       "Uzoq xizmat muddati",
     ],
   },
-  {
-    id: "4",
-    name: "Filtrlash tizimlari",
-    category: "Filtrlar",
-    description: "Havo, moy va yoqilg'i filtrlari — barcha markalar uchun",
-    image: filtersImg,
-    details:
-      "Yuqori sifatli filtrlar dvigatelga toza havo va moy yetkazib beradi, dvigatel samaradorligini oshiradi.",
-    features: [
-      "Havo filtrlari",
-      "Moy filtrlari",
-      "Yoqilg'i filtrlari",
-      "200+ avtomobil markasiga mos",
-    ],
-  },
-  {
-    id: "5",
-    name: "Akkumulyatorlar",
-    category: "Elektr",
-    description: "Uzoq muddatli va ishonchli akkumulyator batareyalar",
-    image: batteryImg,
-    details:
-      "KUDO akkumulyatorlari barcha ob-havo sharoitlarida ishonchli ishga tushirishni ta'minlaydi. 2 yillik kafolat bilan.",
-    features: [
-      "60Ah, 75Ah, 100Ah sig'imlar",
-      "Sovuq haroratda ishonchli ishga tushirish",
-      "2 yillik kafolat",
-      "Texnik xizmat ko'rsatishsiz",
-    ],
-  },
-  {
-    id: "6",
-    name: "Avtokimyo",
-    category: "Kimyo",
-    description: "Tozalash, himoya va parvarishlash vositalari",
-    image: autoChemistryImg,
-    details:
-      "Avtomobilingizni professional darajada parvarish qilish uchun kimyoviy vositalar to'plami.",
-    features: [
-      "Dvigatel tozalagichlar",
-      "Salon tozalash vositalari",
-      "Himoya vosk va polirolar",
-      "Shisha tozalagichlar",
-    ],
-  },
+  // {
+  //   id: "4",
+  //   name: "Filtrlash tizimlari",
+  //   category: "Filtrlar",
+  //   description: "Havo, moy va yoqilg'i filtrlari — barcha markalar uchun",
+  //   image: filtersImg,
+  //   details:
+  //     "Yuqori sifatli filtrlar dvigatelga toza havo va moy yetkazib beradi, dvigatel samaradorligini oshiradi.",
+  //   features: [
+  //     "Havo filtrlari",
+  //     "Moy filtrlari",
+  //     "Yoqilg'i filtrlari",
+  //     "200+ avtomobil markasiga mos",
+  //   ],
+  // },
+  // {
+  //   id: "5",
+  //   name: "Akkumulyatorlar",
+  //   category: "Elektr",
+  //   description: "Uzoq muddatli va ishonchli akkumulyator batareyalar",
+  //   image: batteryImg,
+  //   details:
+  //     "KUDO akkumulyatorlari barcha ob-havo sharoitlarida ishonchli ishga tushirishni ta'minlaydi. 2 yillik kafolat bilan.",
+  //   features: [
+  //     "60Ah, 75Ah, 100Ah sig'imlar",
+  //     "Sovuq haroratda ishonchli ishga tushirish",
+  //     "2 yillik kafolat",
+  //     "Texnik xizmat ko'rsatishsiz",
+  //   ],
+  // },
+  // {
+  //   id: "6",
+  //   name: "Avtokimyo",
+  //   category: "Kimyo",
+  //   description: "Tozalash, himoya va parvarishlash vositalari",
+  //   image: autoChemistryImg,
+  //   details:
+  //     "Avtomobilingizni professional darajada parvarish qilish uchun kimyoviy vositalar to'plami.",
+  //   features: [
+  //     "Dvigatel tozalagichlar",
+  //     "Salon tozalash vositalari",
+  //     "Himoya vosk va polirolar",
+  //     "Shisha tozalagichlar",
+  //   ],
+  // },
 ];
