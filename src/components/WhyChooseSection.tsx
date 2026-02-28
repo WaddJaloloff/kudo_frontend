@@ -13,7 +13,7 @@ const features = [
     icon: BadgeCheck,
     title: "Qulay narx",
     description: "Raqobatbardosh narxlar va muntazam chegirmalar.",
-    stat: "20+",
+    stat: "10+",
     statLabel: "Dilerlar",
   },
   {

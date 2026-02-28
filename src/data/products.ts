@@ -20,7 +20,7 @@ export const products: Product[] = [
     id: "1",
     name: "Ichki Granata",
     category: "Ehtiyot qismlar",
-    description: "Yuqori sifatli sintetik va yarim sintetik motor moylari",
+    description: "Matiz, Spaek, Nexia/R3 AT/LH/RH, Cobalt MT/AT/LH/RH, Gentra AT/LH/RH",
     image: motorOilImg,
     details:
       "KUDO motor moylari dvigatelni ishqalanishdan himoya qiladi, yonilg'i tejamkorligini oshiradi va dvigatel umrini uzaytiradi. Barcha turdagi benzin va dizel dvigatellari uchun mos.",
@@ -35,7 +35,7 @@ export const products: Product[] = [
     id: "2",
     name: "Yonilg'i nasosi",
     category: "Ehtiyot qismlar",
-    description: "DOT 3, DOT 4 standartidagi tormoz suyuqliklari",
+    description: "Matiz, Nexia, Spark, Cobalt, Lacetti",
     image: brakeFluidImg,
     details:
       "Yuqori qaynash nuqtasiga ega tormoz suyuqliklari — xavfsiz haydash uchun. DOT 3 va DOT 4 standartlariga mos keladi.",
@@ -50,7 +50,7 @@ export const products: Product[] = [
     id: "3",
     name: "Rul Mexanizimi",
     category: "Ehtiyot qismlar",
-    description: "Sovutish tizimi uchun yuqori samarali antifrizlar",
+    description: "Damas, Aniq boshqaruvchanlik va barqarorlik uchun rul mexanizimi",
     image: antifreezeImg,
     details:
       "KUDO antifrizlari dvigatelni haddan tashqari qizishdan va muzlashdan himoya qiladi. Uzoq muddat samarali ishlaydi.",

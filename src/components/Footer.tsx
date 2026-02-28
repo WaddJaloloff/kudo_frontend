@@ -5,7 +5,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
             <span className="text-xl font-extrabold text-surface-dark-foreground">
-              KUDO <span className="text-primary">UZ</span>
+              <span className="text-primary">KUDO </span>UZ
             </span>
             <p className="text-sm text-surface-dark-foreground/60 mt-1">
               Avtomobil ehtiyot qismlari va avtokimyo

@@ -19,12 +19,12 @@ const HeroSection = () => {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary-foreground mb-6 animate-fade-in">
             <span className="h-2 w-2 rounded-full bg-primary animate-pulse" />
-            +15 yillik tajriba
+            +14 yillik tajriba
           </div>
 
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-black tracking-tight text-primary-foreground leading-[1.1] mb-6 animate-fade-up">
-            KUDO{" "}
-            <span className="text-primary">Uzbekistan</span>
+            <span className="text-primary">KUDO</span>
+            {" "}UZBEKISTAN
           </h1>
 
           <p className="text-lg md:text-xl text-surface-dark-muted max-w-xl mb-4 animate-fade-up" style={{ animationDelay: "0.15s" }}>
@@ -34,9 +34,9 @@ const HeroSection = () => {
           {/* Stats row */}
           <div className="flex flex-wrap gap-6 mb-10 animate-fade-up" style={{ animationDelay: "0.25s" }}>
             {[
-              { value: "15+", label: "Yillik tajriba" },
-              { value: "100+", label: "Mahsulotlar" },
-              { value: "20+", label: "Dilerlar" },
+              { value: "14+", label: "Yillik tajriba" },
+              { value: "200+", label: "Mahsulotlar" },
+              { value: "10+", label: "Dilerlar" },
             ].map((s) => (
               <div key={s.label} className="text-left">
                 <div className="text-2xl md:text-3xl font-extrabold text-primary-foreground">{s.value}</div>
