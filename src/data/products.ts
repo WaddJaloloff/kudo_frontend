@@ -35,7 +35,7 @@ export const products: Product[] = [
     id: "2",
     name: "Yonilg'i nasosi",
     category: "Ehtiyot qismlar",
-    description: "Matiz, Nexia, Spark, Cobalt, Lacetti",
+    description: "Matiz, Nexia, Spark, Cobalt, Lacetti uchun KUDO'dan sifatli yonilg'i nasosi",
     image: brakeFluidImg,
     details:
       "Yuqori qaynash nuqtasiga ega tormoz suyuqliklari — xavfsiz haydash uchun. DOT 3 va DOT 4 standartlariga mos keladi.",
