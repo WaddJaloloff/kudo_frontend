@@ -17,7 +17,12 @@ interface ApiProduct {
     asosiy: boolean;
   }[];
 
-  kategoriyalar: string[]; // faqat string
+  // catalog filter va kartadagi kategoriya
+  kategoriyalar: string[];        // mahsulot_kategoriyasi (catalog filter uchun)
+  mahsulot_kategoriyasi: string;  // catalog kartada tavsif o‘rnida ko‘rinadi
+
+  // modal va eski joyda ko‘rinadigan avtomobil kategoriyasi
+  avtomobillar: string[];
 
   xususiyatlar: {
     id: number;
@@ -26,7 +31,6 @@ interface ApiProduct {
 
   asosiy_rasm?: string; // optional, API da mavjud
 }
-
 
 const ALL_CATEGORY = "Barchasi";
 
@@ -57,14 +61,18 @@ const Products = () => {
 
 
   useEffect(() => {
-    fetch("/api/products/")
-      .then((res) => res.json())
+    fetch("/api/products/") // to‘g‘ri backend URL
+      .then((res) => {
+        if (!res.ok) throw new Error("Network response was not ok");
+        return res.json();
+      })
       .then((data) => {
         setProducts(data);
         setLoading(false);
       })
       .catch((err) => console.error("API error:", err));
   }, []);
+
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -110,6 +118,7 @@ const Products = () => {
         </ScrollReveal>
 
         {/* Category Tabs */}
+        {/* Category Tabs */}
         <ScrollReveal>
           <div className="flex flex-wrap justify-center gap-2 mb-12">
             {categories.map((cat) => (
@@ -128,59 +137,51 @@ const Products = () => {
         </ScrollReveal>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          {
-            filtered.map((p, i) => {
-              // asosiy rasmni aniqlash
-              const mainImage = p.rasmlar.find(img => img.asosiy)?.rasm || p.rasmlar[0]?.rasm;
+          {filtered.map((p, i) => {
+            const mainImage = p.rasmlar.find((img) => img.asosiy)?.rasm || p.rasmlar[0]?.rasm;
 
-              // asosiy kategoriya (birinchi)
-              <span className="inline-block rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary mb-3">
-                {p.kategoriyalar.join(", ")}
-              </span>
-
-
-              return (
-                <ScrollReveal key={p.id} delay={i * 80}>
-                  <button
-                    onClick={() => setSelectedProduct(p)}
-                    className="w-full text-left group relative rounded-2xl border border-border bg-card overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-primary/10 hover:border-primary/40 hover:-translate-y-1 cursor-pointer"
-                  >
-                    <div className="aspect-square overflow-hidden">
-                      <img
-                        src={mainImage}
-                        alt={p.nomi}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                      />
+            return (
+              <ScrollReveal key={p.id} delay={i * 80}>
+                <button
+                  onClick={() => setSelectedProduct(p)}
+                  className="w-full text-left group relative rounded-2xl border border-border bg-card overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-primary/10 hover:border-primary/40 hover:-translate-y-1 cursor-pointer"
+                >
+                  <div className="aspect-square overflow-hidden">
+                    <img
+                      src={mainImage}
+                      alt={p.nomi}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                  </div>
+                  <div className="p-6">
+                    {/* Avtomobil kategoriyasi (har doim kartada ko‘rinadi) */}
+                    <div className="flex flex-wrap gap-1 justify-start mb-2">
+                      {p.avtomobillar.map((avto) => (
+                        <span
+                          key={avto}
+                          className="inline-block rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary mb-1"
+                        >
+                          {avto}
+                        </span>
+                      ))}
                     </div>
-                    <div className="p-6">
-                      <div className="flex flex-wrap gap-1 justify-start">
-                        {p.kategoriyalar.map((cat) => (
-                          <span
-                            key={cat}
-                            className="inline-block rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary mb-1"
-                          >
-                            {cat}
-                          </span>
-                        ))}
-                      </div>
 
+                    {/* Mahsulot nomi */}
+                    <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+                      {p.nomi}
+                    </h3>
 
-
-                      <h3 className="text-lg font-bold text-foreground mb-1 group-hover:text-primary transition-colors">
-                        {p.nomi}
-                      </h3>
-
-                      <p className="text-sm text-muted-foreground leading-relaxed">
-                        {p.tavsifi}
-                      </p>
+                    {/* Mahsulot kategoriyasi faqat kartaning eng pastida */}
+                    <div className="mt-4 text-xs font-semibold text-muted-foreground">
+                      {p.mahsulot_kategoriyasi}
                     </div>
-                  </button>
-                </ScrollReveal>
-              );
-            })
-
-          }
+                  </div>
+                </button>
+              </ScrollReveal>
+            );
+          })}
         </div>
+
 
       </main>
 

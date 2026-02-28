@@ -31,6 +31,7 @@ interface ApiProduct {
   }[];
 
   kategoriyalar: string[]; // faqat string
+  avtomobillar: string[];   // yangi, mahsulotga bog‘langan avtomobillar
 
   xususiyatlar: {
     id: number;
@@ -73,17 +74,18 @@ const ProductDetails = ({ product }: { product: ApiProduct }) => {
       </div>
 
       {/* Kategoriyalar */}
+
+      {/* Avtomobillar */}
       <div className="flex flex-wrap gap-2 justify-start">
-        {product.kategoriyalar.map((kat, i) => (
+        {product.avtomobillar.map((avto, i) => (
           <span
             key={i}
             className="inline-block rounded-full bg-primary/15 px-3 py-1 text-xs font-semibold text-primary"
           >
-            {kat}
+            {avto}
           </span>
         ))}
       </div>
-
       {/* Umumiy ma'lumotlar */}
       <div>
         <p className="text-muted-foreground leading-relaxed">{product.tavsifi}</p>
