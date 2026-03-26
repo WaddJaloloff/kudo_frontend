@@ -4,6 +4,7 @@ import { ArrowLeft } from "lucide-react";
 import { useEffect } from "react";
 import ScrollReveal from "@/components/ScrollReveal";
 import ProductModal from "@/components/ProductModal";
+import { products as fakeProducts } from "@/data/products";
 
 
 interface ApiProduct {
@@ -73,6 +74,7 @@ const Products = () => {
       .catch((err) => console.error("API error:", err));
   }, []);
 
+  
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -146,11 +148,11 @@ const Products = () => {
                   onClick={() => setSelectedProduct(p)}
                   className="w-full text-left group relative rounded-2xl border border-border bg-card overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-primary/10 hover:border-primary/40 hover:-translate-y-1 cursor-pointer"
                 >
-                  <div className="aspect-square overflow-hidden">
+                  <div className="overflow-hidden">
                     <img
                       src={mainImage}
                       alt={p.nomi}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      className="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>
                   <div className="p-6">

@@ -24,7 +24,7 @@ const CatalogSection = () => {
               <div className="group relative rounded-2xl border border-white/10 bg-white/5 overflow-hidden backdrop-blur transition-all duration-300 hover:bg-white/10 hover:border-primary/40 hover:-translate-y-1">
                 <div className="aspect-square overflow-hidden">
                   <img
-                    src={p.image}
+                    src={p.images[0]}
                     alt={p.name}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     loading="lazy"

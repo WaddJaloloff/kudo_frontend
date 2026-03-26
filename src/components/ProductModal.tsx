@@ -53,20 +53,24 @@ const ProductDetails = ({ product }: { product: ApiProduct }) => {
   return (
     <div className="space-y-6">
       {/* Carousel */}
-      <div className="rounded-2xl overflow-hidden max-w-md mx-auto">
+      <div
+        className="rounded-2xl overflow-hidden max-w-md mx-auto border"
+        style={{ borderColor: "#ff6b6b" }}
+      > 
         <Swiper
           modules={[Navigation]}
           navigation
           spaceBetween={10}
           slidesPerView={1}
-          className="aspect-video"
+          className=""
         >
           {product.rasmlar.map((img) => (
             <SwiperSlide key={img.id}>
               <img
                 src={img.rasm}
                 alt={product.nomi}
-                className="w-full h-full object-cover rounded-2xl"
+
+                className="w-full h-auto object-contain rounded-2xl"
               />
             </SwiperSlide>
           ))}

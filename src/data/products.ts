@@ -10,7 +10,7 @@ export interface Product {
   name: string;
   category: string;
   description: string;
-  image: string;
+  images: string[]; // 🔥 o‘zgardi
   details: string;
   features: string[];
 }
@@ -21,7 +21,13 @@ export const products: Product[] = [
     name: "Ichki Granata",
     category: "Ehtiyot qismlar",
     description: "Matiz, Spaek, Nexia/R3 AT/LH/RH, Cobalt MT/AT/LH/RH, Gentra AT/LH/RH",
-    image: motorOilImg,
+    
+    images: [
+      motorOilImg,
+      brakeFluidImg,
+      antifreezeImg,
+    ],
+
     details:
       "KUDO motor moylari dvigatelni ishqalanishdan himoya qiladi, yonilg'i tejamkorligini oshiradi va dvigatel umrini uzaytiradi. Barcha turdagi benzin va dizel dvigatellari uchun mos.",
     features: [
@@ -36,7 +42,13 @@ export const products: Product[] = [
     name: "Yonilg'i nasosi",
     category: "Ehtiyot qismlar",
     description: "Matiz, Nexia, Spark, Cobalt, Lacetti uchun KUDO'dan sifatli yonilg'i nasosi",
-    image: brakeFluidImg,
+    
+    images: [
+      motorOilImg,
+      brakeFluidImg,
+      antifreezeImg,
+    ],
+
     details:
       "Yuqori qaynash nuqtasiga ega tormoz suyuqliklari — xavfsiz haydash uchun. DOT 3 va DOT 4 standartlariga mos keladi.",
     features: [
@@ -51,7 +63,13 @@ export const products: Product[] = [
     name: "Rul Mexanizimi",
     category: "Ehtiyot qismlar",
     description: "Damas, Aniq boshqaruvchanlik va barqarorlik uchun rul mexanizimi",
-    image: antifreezeImg,
+    
+    images: [
+      motorOilImg,
+      brakeFluidImg,
+      antifreezeImg,
+    ],
+
     details:
       "KUDO antifrizlari dvigatelni haddan tashqari qizishdan va muzlashdan himoya qiladi. Uzoq muddat samarali ishlaydi.",
     features: [
