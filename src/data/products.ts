@@ -23,9 +23,7 @@ export const products: Product[] = [
     description: "Matiz, Spaek, Nexia/R3 AT/LH/RH, Cobalt MT/AT/LH/RH, Gentra AT/LH/RH",
     
     images: [
-      motorOilImg,
-      brakeFluidImg,
-      antifreezeImg,
+      motorOilImg
     ],
 
     details:
@@ -44,9 +42,7 @@ export const products: Product[] = [
     description: "Matiz, Nexia, Spark, Cobalt, Lacetti uchun KUDO'dan sifatli yonilg'i nasosi",
     
     images: [
-      motorOilImg,
-      brakeFluidImg,
-      antifreezeImg,
+      brakeFluidImg
     ],
 
     details:
@@ -65,9 +61,7 @@ export const products: Product[] = [
     description: "Damas, Aniq boshqaruvchanlik va barqarorlik uchun rul mexanizimi",
     
     images: [
-      motorOilImg,
-      brakeFluidImg,
-      antifreezeImg,
+      antifreezeImg
     ],
 
     details:
