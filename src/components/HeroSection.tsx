@@ -1,4 +1,5 @@
 import heroBg from "@/assets/hero-bg.jpg";
+import kudoLogo from "@/assets/kudo.png"; // yoki sen aytgan rasm path
 
 const HeroSection = () => {
   const scrollToCatalog = () => {
@@ -22,10 +23,16 @@ const HeroSection = () => {
             +14 yillik tajriba
           </div>
 
-          <h1 className="text-4xl sm:text-5xl md:text-7xl font-black tracking-tight text-primary-foreground leading-[1.1] mb-6 animate-fade-up">
-            <span className="text-primary">KUDO</span>
-            {" "}UZBEKISTAN
-          </h1>
+<h1 className="text-4xl sm:text-5xl md:text-7xl font-black tracking-tight text-primary-foreground leading-[1.1] mb-6 animate-fade-up flex items-center gap-4 flex-wrap">
+  
+  <img
+    src={kudoLogo}
+    alt="KUDO"
+    className="h-10 sm:h-12 md:h-16 w-auto object-contain"
+  />
+
+  <span>UZBEKISTAN</span>
+</h1>
 
           <p className="text-lg md:text-xl text-surface-dark-muted max-w-xl mb-4 animate-fade-up" style={{ animationDelay: "0.15s" }}>
             Avtomobil ehtiyot qismlari va avtokimyo mahsulotlari — sifat kafolati bilan.
