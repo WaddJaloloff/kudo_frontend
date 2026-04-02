@@ -60,36 +60,21 @@ const Products = () => {
 
 
 
-
-  useEffect(() => {
-    const mapped: ApiProduct[] = fakeProducts.map((p) => ({
-      id: Number(p.id),
-
-      nomi: p.name,
-      tavsifi: p.details,
-
-      rasmlar: p.images.map((img, i) => ({
-        id: i,
-        rasm: img,
-        asosiy: i === 0,
-      })),
-
-      kategoriyalar: [p.category],
-      mahsulot_kategoriyasi: p.category,
-
-      avtomobillar: p.description.split(","),
-
-      xususiyatlar: p.features.map((f, i) => ({
-        id: i,
-        sarlavha: f,
-      })),
-
-      asosiy_rasm: p.images[0],
-    }));
-
-    setProducts(mapped);
-    setLoading(false);
-  }, []);
+useEffect(() => {
+  fetch("/api/products/")
+    .then((res) => {
+      if (!res.ok) throw new Error("Network response was not ok");
+      return res.json();
+    })
+    .then((data) => {
+      setProducts(data);
+      setLoading(false);
+    })
+    .catch((err) => {
+      console.error("API error:", err);
+      setLoading(false);
+    });
+}, []);
 
   if (loading) {
     return (
