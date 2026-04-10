@@ -1,6 +1,6 @@
-import motorOilImg from "@/assets/products/image.png";
-import brakeFluidImg from "@/assets/products/yonilgi-nasosi.png";
-import antifreezeImg from "@/assets/products/rul-mexanizimi.png";
+import motorOilImg from "@/assets/products/product1.jpg";
+import brakeFluidImg from "@/assets/products/product2.jpg";
+import antifreezeImg from "@/assets/products/product3.jpg";
 import filtersImg from "@/assets/products/filters.jpg";
 import batteryImg from "@/assets/products/battery.jpg";
 import autoChemistryImg from "@/assets/products/auto-chemistry.jpg";
@@ -18,9 +18,9 @@ export interface Product {
 export const products: Product[] = [
   {
     id: "1",
-    name: "Ichki Granata",
+    name: "Oporniy disk",
     category: "Ehtiyot qismlar",
-    description: "Matiz, Spaek, Nexia/R3 AT/LH/RH, Cobalt MT/AT/LH/RH, Gentra AT/LH/RH",
+    description: "",
     
     images: [
       motorOilImg
@@ -37,9 +37,9 @@ export const products: Product[] = [
   },
   {
     id: "2",
-    name: "Yonilg'i nasosi",
+    name: "Granata tashqi",
     category: "Ehtiyot qismlar",
-    description: "Matiz, Nexia, Spark, Cobalt, Lacetti uchun KUDO'dan sifatli yonilg'i nasosi",
+    description: "",
     
     images: [
       brakeFluidImg
@@ -56,9 +56,9 @@ export const products: Product[] = [
   },
   {
     id: "3",
-    name: "Rul Mexanizimi",
+    name: "Amortizator",
     category: "Ehtiyot qismlar",
-    description: "Damas, Aniq boshqaruvchanlik va barqarorlik uchun rul mexanizimi",
+    description: "",
     
     images: [
       antifreezeImg
