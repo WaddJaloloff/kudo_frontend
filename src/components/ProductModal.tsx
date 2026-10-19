@@ -16,11 +16,11 @@ import {
   DialogTitle,
   DialogDescription,
 } from "@/components/ui/dialog";
-import { Check, ShoppingCart, Plus, Minus, Phone, Copy, Share2 } from "lucide-react";
+import { Check, ShoppingCart, Plus, Minus, Phone, Copy, Share2, AlertCircle } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { useCart } from "@/context/CartContext";
 import { useLang } from "@/context/LangContext";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 interface ApiProduct {
   id: number;
@@ -45,6 +45,8 @@ const ProductDetails = ({ product }: { product: ApiProduct }) => {
   const [copied, setCopied] = useState(false);
   const [selectedCar, setSelectedCar] = useState<string | null>(null);
   const [carError, setCarError] = useState(false);
+  const [shakeKey, setShakeKey] = useState(0);
+  const carSectionRef = useRef<HTMLDivElement>(null);
 
   const cartItem = items.find((i) => i.id === product.id);
 
@@ -66,6 +68,9 @@ const ProductDetails = ({ product }: { product: ApiProduct }) => {
   const handleAddToCart = () => {
     if (product.avtomobillar.length > 0 && !selectedCar) {
       setCarError(true);
+      setShakeKey(k => k + 1); // trigger shake every time
+      // Scroll car section into view
+      carSectionRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
       return;
     }
     addToCart({
@@ -116,6 +121,20 @@ const ProductDetails = ({ product }: { product: ApiProduct }) => {
 
   return (
     <div className="space-y-5">
+      {/* Shake animation style */}
+      <style>{`
+        @keyframes kudo-shake {
+          0%,100% { transform: translateX(0); }
+          15% { transform: translateX(-6px); }
+          30% { transform: translateX(6px); }
+          45% { transform: translateX(-5px); }
+          60% { transform: translateX(5px); }
+          75% { transform: translateX(-3px); }
+          90% { transform: translateX(3px); }
+        }
+        .kudo-shake { animation: kudo-shake 0.5s ease; }
+      `}</style>
+
       {/* Carousel */}
       {product.rasmlar.length > 0 && (
         <div className="rounded-xl overflow-hidden border border-border bg-secondary/20 w-full min-w-0">
@@ -133,13 +152,27 @@ const ProductDetails = ({ product }: { product: ApiProduct }) => {
         </div>
       )}
 
+      {/* Car type warning banner — only shown when error */}
+      {carError && product.avtomobillar.length > 0 && (
+        <div
+          key={shakeKey}
+          className="kudo-shake flex items-center gap-2.5 rounded-xl bg-red-50 border-2 border-red-400 px-4 py-3 text-red-700"
+        >
+          <AlertCircle className="w-5 h-5 shrink-0 text-red-500" />
+          <p className="text-sm font-bold">{t.carTypeRequired}</p>
+        </div>
+      )}
+
       {/* Car selection chips */}
       {product.avtomobillar.length > 0 && (
-        <div className="space-y-2">
+        <div ref={carSectionRef} className="space-y-2">
           <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
-            Mashina turini tanlang
+            {t.selectCarType}
           </p>
-          <div className="flex flex-wrap gap-2">
+          <div
+            key={`chips-${shakeKey}`}
+            className={`flex flex-wrap gap-2 rounded-xl transition-all ${carError ? "p-2 bg-red-50/60 border border-red-200" : ""}`}
+          >
             {product.avtomobillar.map((avto, i) => {
               const isSelected = selectedCar === avto;
               return (
@@ -149,6 +182,8 @@ const ProductDetails = ({ product }: { product: ApiProduct }) => {
                   className={`rounded-full px-3 py-1.5 text-xs font-semibold transition-all border ${
                     isSelected
                       ? "bg-primary text-primary-foreground border-primary shadow-md scale-105"
+                      : carError
+                      ? "bg-red-50 text-red-700 border-red-300 hover:bg-red-100 hover:scale-105"
                       : "bg-primary/10 text-primary border-primary/20 hover:bg-primary/20 hover:scale-105"
                   }`}
                 >
@@ -158,9 +193,6 @@ const ProductDetails = ({ product }: { product: ApiProduct }) => {
               );
             })}
           </div>
-          {carError && (
-            <p className="text-xs text-destructive font-medium">⚠ Iltimos, mashina turini tanlang</p>
-          )}
         </div>
       )}
 
@@ -236,12 +268,12 @@ const ProductDetails = ({ product }: { product: ApiProduct }) => {
             {copied ? (
               <>
                 <Check className="w-3.5 h-3.5 text-green-500" />
-                <span className="text-green-600">Nusxa olindi!</span>
+                <span className="text-green-600">{t.copied}</span>
               </>
             ) : (
               <>
                 <Copy className="w-3.5 h-3.5" />
-                Mahsulot havolasi
+                {t.productLink}
               </>
             )}
           </button>
@@ -251,7 +283,7 @@ const ProductDetails = ({ product }: { product: ApiProduct }) => {
               className="flex-1 flex items-center justify-center gap-1.5 rounded-xl border border-border px-4 py-2.5 text-xs font-semibold text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors"
             >
               <Share2 className="w-3.5 h-3.5" />
-              Ulashish
+              {t.share}
             </button>
           )}
         </div>

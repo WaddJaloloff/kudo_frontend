@@ -77,6 +77,12 @@ const T = {
     contactTgBot: "Telegram Bot",
     contactTgAdmin: "Telegram Admin",
     contactInsta: "Instagram",
+    // ProductModal strings
+    selectCarType: "Mashina turini tanlang",
+    productLink: "Mahsulot havolasi",
+    copied: "Nusxa olindi!",
+    share: "Ulashish",
+    carTypeRequired: "Iltimos, mashina turini tanlang",
   },
   ru: {
     home: "Главная",
@@ -152,6 +158,12 @@ const T = {
     contactTgBot: "Telegram Bot",
     contactTgAdmin: "Telegram Admin",
     contactInsta: "Instagram",
+    // ProductModal strings
+    selectCarType: "Выберите марку авто",
+    productLink: "Ссылка на товар",
+    copied: "Скопировано!",
+    share: "Поделиться",
+    carTypeRequired: "Пожалуйста, выберите марку авто",
   },
   en: {
     home: "Home",
@@ -227,6 +239,12 @@ const T = {
     contactTgBot: "Telegram Bot",
     contactTgAdmin: "Telegram Admin",
     contactInsta: "Instagram",
+    // ProductModal strings
+    selectCarType: "Select car type",
+    productLink: "Product link",
+    copied: "Copied!",
+    share: "Share",
+    carTypeRequired: "Please select a car type",
   },
 } as const;
 
