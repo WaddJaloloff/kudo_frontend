@@ -46,7 +46,8 @@ const Products = () => {
           p.nomi.toLowerCase().includes(q) ||
           p.mahsulot_kategoriyasi.toLowerCase().includes(q) ||
           p.tavsifi?.toLowerCase().includes(q) ||
-          p.kategoriyalar.some((k) => k.toLowerCase().includes(q))
+          p.kategoriyalar.some((k) => k.toLowerCase().includes(q)) ||
+          p.avtomobillar.some((a) => a.toLowerCase().includes(q))
       );
     }
     return result;
@@ -62,7 +63,6 @@ const Products = () => {
       .catch(() => setLoading(false));
   }, []);
 
-  // Auto-open product from URL ?pid=X
   useEffect(() => {
     if (loading || products.length === 0) return;
     const pid = searchParams.get("pid");
@@ -88,7 +88,6 @@ const Products = () => {
 
   const handleAddToCart = (e: React.MouseEvent, product: ApiProduct) => {
     e.stopPropagation();
-    // If product has compatible cars, open modal for car selection
     if (product.avtomobillar.length > 0) {
       handleOpenProduct(product);
       return;
@@ -120,7 +119,6 @@ const Products = () => {
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
-      {/* Header */}
       <header className="sticky top-0 z-40 border-b border-primary/10 bg-primary shadow-md">
         <div className="container mx-auto px-4 py-3 flex items-center gap-3">
           <Link
@@ -140,7 +138,6 @@ const Products = () => {
         </div>
       </header>
 
-      {/* Products Grid */}
       <main className="container mx-auto px-4 py-10 flex-1">
         <ScrollReveal>
           <div className="text-center mb-8">
@@ -158,7 +155,7 @@ const Products = () => {
 
         {/* Live Search */}
         <ScrollReveal>
-          <div className="relative max-w-md mx-auto mb-6">
+          <div className="relative max-w-md mx-auto mb-4">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none" />
             <input
               type="text"
@@ -172,17 +169,46 @@ const Products = () => {
                 onClick={() => setSearch("")}
                 className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
               >
-                <span className="text-base leading-none">×</span>
+                <span className="text-base leading-none">x</span>
               </button>
             )}
           </div>
         </ScrollReveal>
 
-        {/* Category Tabs */}
+        {/* Category Tabs - below search */}
         <ScrollReveal>
-          <div className="flex flex-wrap justify-center gap-2 mb-10">
+          {/* Mobile: 3-row grid with horizontal scroll */}
+          <div className="md:hidden overflow-x-auto pb-2 mb-8">
+            <div className="grid grid-rows-3 grid-flow-col auto-cols-max gap-2 w-max">
+              <button
+                onClick={() => setActiveCategory("ALL")}
+                className={`rounded-full px-4 py-2 text-sm font-semibold transition-all duration-200 cursor-pointer whitespace-nowrap ${
+                  activeCategory === "ALL"
+                    ? "bg-primary text-primary-foreground shadow-lg shadow-primary/30"
+                    : "bg-secondary text-foreground hover:bg-primary/10 hover:text-primary"
+                }`}
+              >
+                {t.allCats}
+              </button>
+              {categories.map((cat) => (
+                <button
+                  key={cat}
+                  onClick={() => setActiveCategory(cat)}
+                  className={`rounded-full px-4 py-2 text-sm font-semibold transition-all duration-200 cursor-pointer whitespace-nowrap ${
+                    activeCategory === cat
+                      ? "bg-primary text-primary-foreground shadow-lg shadow-primary/30"
+                      : "bg-secondary text-foreground hover:bg-primary/10 hover:text-primary"
+                  }`}
+                >
+                  {cat}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Desktop: flex-wrap centered */}
+          <div className="hidden md:flex flex-wrap justify-center gap-2 mb-10">
             <button
-              key="ALL"
               onClick={() => setActiveCategory("ALL")}
               className={`rounded-full px-4 py-2 text-sm font-semibold transition-all duration-200 cursor-pointer ${
                 activeCategory === "ALL"
@@ -208,7 +234,6 @@ const Products = () => {
           </div>
         </ScrollReveal>
 
-        {/* No results */}
         {filtered.length === 0 && (
           <div className="text-center py-32 text-muted-foreground">
             <Search className="h-10 w-10 mx-auto mb-3 opacity-30" />
@@ -227,7 +252,6 @@ const Products = () => {
                   onClick={() => handleOpenProduct(p)}
                   className="group relative rounded-2xl border border-border bg-card overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-primary/10 hover:border-primary/40 hover:-translate-y-1 cursor-pointer flex flex-col"
                 >
-                  {/* Image */}
                   <div className="overflow-hidden bg-secondary/30 aspect-square">
                     {mainImage ? (
                       <img
@@ -242,7 +266,6 @@ const Products = () => {
                     )}
                   </div>
 
-                  {/* Info */}
                   <div className="p-3 flex-1 flex flex-col">
                     <div className="flex flex-wrap gap-1 mb-1.5">
                       {p.avtomobillar.slice(0, 2).map((avto) => (
@@ -267,7 +290,6 @@ const Products = () => {
                     </div>
                   </div>
 
-                  {/* Cart counter — bottom, stops propagation */}
                   <div
                     className="px-3 pb-3 pt-0"
                     onClick={(e) => e.stopPropagation()}
