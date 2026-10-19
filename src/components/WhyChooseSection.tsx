@@ -1,39 +1,47 @@
 import { Shield, Truck, BadgeCheck } from "lucide-react";
 import ScrollReveal from "./ScrollReveal";
-
-const features = [
-  {
-    icon: Shield,
-    title: "Kafolatlangan sifat",
-    description: "Barcha mahsulotlar sertifikatlangan va sifat nazoratidan o'tgan.",
-    stat: "100%",
-    statLabel: "Original",
-  },
-  {
-    icon: BadgeCheck,
-    title: "Qulay narx",
-    description: "Raqobatbardosh narxlar va muntazam chegirmalar.",
-    stat: "10+",
-    statLabel: "Dilerlar",
-  },
-  {
-    icon: Truck,
-    title: "Yetkazib berish",
-    description: "O'zbekiston bo'ylab tez va ishonchli yetkazib berish xizmati.",
-    stat: "24/7",
-    statLabel: "Xizmat",
-  },
-];
+import { useLang } from "@/context/LangContext";
 
 const WhyChooseSection = () => {
+  const { t } = useLang();
+
+  const features = [
+    {
+      icon: Shield,
+      title: t.feat1Title,
+      description: t.feat1Desc,
+      stat: "100%",
+      statLabel: t.statOriginal,
+    },
+    {
+      icon: BadgeCheck,
+      title: t.feat2Title,
+      description: t.feat2Desc,
+      stat: "10+",
+      statLabel: t.statDealers,
+    },
+    {
+      icon: Truck,
+      title: t.feat3Title,
+      description: t.feat3Desc,
+      stat: "24/7",
+      statLabel: t.statService,
+    },
+  ];
+
+  // Split "Nima uchun KUDO?" / "Почему KUDO?" / "Why KUDO?" around "KUDO"
+  const titleParts = t.whyKudo.split("KUDO");
+
   return (
     <section className="py-20 md:py-28 bg-background">
       <div className="container mx-auto px-6">
         <ScrollReveal>
           <div className="text-center mb-16">
-            <p className="text-sm font-semibold uppercase tracking-widest text-primary mb-3">Afzalliklar</p>
+            <p className="text-sm font-semibold uppercase tracking-widest text-primary mb-3">
+              {t.advantagesLabel}
+            </p>
             <h2 className="text-3xl md:text-4xl font-extrabold text-foreground">
-              Nima uchun <span className="text-primary">KUDO</span>?
+              {titleParts[0]}<span className="text-primary">KUDO</span>{titleParts[1]}
             </h2>
           </div>
         </ScrollReveal>

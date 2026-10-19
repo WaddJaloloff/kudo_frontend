@@ -2,7 +2,7 @@ const Footer = () => {
   return (
     <footer className="bg-surface-dark border-t border-white/10 py-10">
       <div className="container mx-auto px-6">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="flex flex-col items-center text-center gap-6">
           <div>
             <span className="text-xl font-extrabold text-surface-dark-foreground">
               <span className="text-primary">KUDO </span>UZ
@@ -11,8 +11,7 @@ const Footer = () => {
               Avtomobil ehtiyot qismlari va avtokimyo
             </p>
           </div>
-
-          <div className="flex flex-wrap items-center gap-6">
+          <div className="flex flex-wrap items-center justify-center gap-6">
             <a
               href="tel:+998997364444"
               className="text-sm text-surface-dark-foreground hover:text-primary transition-colors"
@@ -37,7 +36,6 @@ const Footer = () => {
             </a>
           </div>
         </div>
-
         <div className="mt-8 pt-6 border-t border-white/10 text-center">
           <p className="text-xs text-surface-dark-foreground/50">
             © {new Date().getFullYear()} KUDO Uzbekistan. Barcha huquqlar himoyalangan.

@@ -1,46 +1,49 @@
 import { Phone, MapPin, Clock, Send, Instagram, UserCheck } from "lucide-react";
 import ScrollReveal from "./ScrollReveal";
-
-const contacts = [
-  {
-    icon: Phone,
-    title: "Telefon",
-    value: "+998 99 736-44-44",
-    href: "tel:+998997364444",
-  },
-  {
-    icon: MapPin,
-    title: "Manzil",
-    value: "Sergeli Avto Bozor, 3/2/15, Toshkent",
-    href: "https://www.google.com/maps/place/41%C2%B013'53.6%22N+69%C2%B012'51.9%22E/@41.231544,69.214419,16z/data=!4m4!3m3!8m2!3d41.2315556!4d69.2144167?entry=ttu&g_ep=EgoyMDI2MDIxMS4wIKXMDSoASAFQAw%3D%3D",
-  },
-  {
-    icon: Clock,
-    title: "Ish vaqti",
-    value: "8:00 - 17:00",
-    href: undefined,
-  },
-  {
-    icon: Send,
-    title: "Telegram Bot",
-    value: "@kudouz_bot",
-    href: "https://t.me/kudouz_bot",
-  },
-  {
-    icon: UserCheck,
-    title: "Telegram Admin",
-    value: "@KUDO_UZB",
-    href: "https://t.me/KUDO_UZB",
-  },
-  {
-    icon: Instagram,
-    title: "Instagram",
-    value: "@kudo.uzbekistan",
-    href: "https://www.instagram.com/kudo.uzbekistan/?hl=en",
-  },
-];
+import { useLang } from "@/context/LangContext";
 
 const ContactSection = () => {
+  const { t } = useLang();
+
+  const contacts = [
+    {
+      icon: Phone,
+      title: t.contactPhone,
+      value: "+998 99 736-44-44",
+      href: "tel:+998997364444",
+    },
+    {
+      icon: MapPin,
+      title: t.contactAddress,
+      value: "Sergeli Avto Bozor, 3/2/15, Toshkent",
+      href: "https://www.google.com/maps/place/41%C2%B013'53.6%22N+69%C2%B012'51.9%22E/@41.231544,69.214419,16z/data=!4m4!3m3!8m2!3d41.2315556!4d69.2144167?entry=ttu&g_ep=EgoyMDI2MDIxMS4wIKXMDSoASAFQAw%3D%3D",
+    },
+    {
+      icon: Clock,
+      title: t.contactHours,
+      value: "8:00 - 17:00",
+      href: undefined,
+    },
+    {
+      icon: Send,
+      title: t.contactTgBot,
+      value: "@kudouz_bot",
+      href: "https://t.me/kudouz_bot",
+    },
+    {
+      icon: UserCheck,
+      title: t.contactTgAdmin,
+      value: "@KUDO_UZB",
+      href: "https://t.me/KUDO_UZB",
+    },
+    {
+      icon: Instagram,
+      title: t.contactInsta,
+      value: "@kudo.uzbekistan",
+      href: "https://www.instagram.com/kudo.uzbekistan/?hl=en",
+    },
+  ];
+
   return (
     <section className="py-20 md:py-28 bg-background relative overflow-hidden">
       {/* Decorative elements */}
@@ -51,8 +54,8 @@ const ContactSection = () => {
       <div className="container mx-auto px-6 relative z-10">
         <ScrollReveal>
           <div className="text-center mb-14">
-            <p className="text-sm font-semibold uppercase tracking-widest text-primary mb-3">Aloqa</p>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-foreground">Biz bilan bog'laning</h2>
+            <p className="text-sm font-semibold uppercase tracking-widest text-primary mb-3">{t.contactLabel}</p>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-foreground">{t.contactTitle}</h2>
             <div className="mt-4 mx-auto w-16 h-1 rounded-full bg-primary" />
           </div>
         </ScrollReveal>

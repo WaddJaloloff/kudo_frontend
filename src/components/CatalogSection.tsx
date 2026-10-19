@@ -1,19 +1,24 @@
 import { Link } from "react-router-dom";
 import ScrollReveal from "./ScrollReveal";
 import { products } from "@/data/products";
+import { useLang } from "@/context/LangContext";
 
 const CatalogSection = () => {
+  const { t } = useLang();
+
   return (
     <section id="catalog" className="py-20 md:py-28 bg-surface-dark">
       <div className="container mx-auto px-6">
         <ScrollReveal>
           <div className="text-center mb-16">
-            <p className="text-sm font-semibold uppercase tracking-widest text-primary mb-3">Katalog</p>
+            <p className="text-sm font-semibold uppercase tracking-widest text-primary mb-3">
+              {t.catalog}
+            </p>
             <h2 className="text-3xl md:text-4xl font-extrabold text-surface-dark-foreground">
-              Mahsulotlar
+              {t.products}
             </h2>
             <p className="mt-4 text-surface-dark-muted max-w-lg mx-auto">
-              100 dan ortiq turdagi avtomobil ehtiyot qismlari va kimyoviy mahsulotlar
+              {t.productCount}
             </p>
           </div>
         </ScrollReveal>
@@ -50,7 +55,7 @@ const CatalogSection = () => {
               to="/products"
               className="inline-flex items-center gap-2 rounded-lg bg-primary px-8 py-4 text-base font-bold text-primary-foreground shadow-lg shadow-primary/30 transition-all duration-300 hover:shadow-xl hover:shadow-primary/40 hover:-translate-y-0.5"
             >
-              Ko'proq ko'rish →
+              {t.seeMore}
             </Link>
           </div>
         </ScrollReveal>
